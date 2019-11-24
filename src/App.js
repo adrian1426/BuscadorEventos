@@ -1,11 +1,12 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import Header from './components/Header';
+import CategoriaProvider from './context/CategoriaContext';
 
 function App() {
   return (
-    <Fragment>
+    <CategoriaProvider>
       <Header/>
-    </Fragment>
+    </CategoriaProvider>
   );
 }
 
