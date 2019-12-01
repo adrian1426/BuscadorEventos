@@ -12,13 +12,17 @@ class EventosProvider extends Component{
     token = 'NVKG2DE5ZLYJ7ZF45P4J';
     ordenar = 'date';
 
-    obtenerEventos = async (busqueda) =>{
+    obtenerEventos = async (busqueda) => {
+        let url = `https://www.eventbriteapi.com/v3/events/search/?q=${busqueda.nombre}&categories=${busqueda.categoria}&sort_by=${this.ordenar}&token=${this.token}&locale=es_ES`;
 
-        const url = `https://www.eventbriteapi.com/v3/events/search/?q=${busqueda.nombre}&categories=${busqueda.categoria}&sort_by=${this.ordenar}&token=${this.token}&locale=es_ES`;
+        // consultar la API con la URL
+        const eventos = await axios(url);
 
-        const eventos= await axios.get(url);
+        this.setState({
+            eventos : eventos.data.events
+        })
 
-        console.log("eventos: ",eventos);
+
     }
     render(){
         return(

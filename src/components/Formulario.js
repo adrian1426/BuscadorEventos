@@ -19,7 +19,6 @@ class Formulario extends Component{
             <EventosConsumer>
                 {
                     (value) =>{
-                        console.log("value: ",value);
                         return(
                             <form
                                 onSubmit={(e) =>{

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import CategoriaProvider from './context/CategoriaContext';
 import Formulario from './components/Formulario';
 import EventosProvider from './context/EventosContext';
+import ListaEventos from './components/ListaEventos';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header/>
         <div className="uk-container">
           <Formulario/>
+          <ListaEventos/>
         </div>
         </CategoriaProvider>
     </EventosProvider>
