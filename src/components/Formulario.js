@@ -7,6 +7,12 @@ class Formulario extends Component{
         categoria:''
     }
 
+    obtenerDatosBusqueda = e =>{
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+
     render(){
         return(
             <form>
@@ -23,6 +29,7 @@ class Formulario extends Component{
                             className="uk-input"
                             type="text"
                             placeholder="Nombre de evento o ciudad"
+                            onChange={this.obtenerDatosBusqueda}
                         />
                     </div>
 
@@ -30,7 +37,9 @@ class Formulario extends Component{
                         <select
                             className="uk-select"
                             name="categoria"
+                            onChange={this.obtenerDatosBusqueda}
                         >
+                            <option value="">--seleccionar categoria--</option>
                             <CategoriaConsumer>
                                 {
                                     (value) =>{
@@ -39,7 +48,7 @@ class Formulario extends Component{
                                                 <option 
                                                     key={categoria.id}
                                                     value={categoria.id}
-                                                    data-uk-form-select="true"
+                                                    data-uk-form-select
                                                 >
                                                     {categoria.name_localized}
                                                 </option>
